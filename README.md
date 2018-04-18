@@ -5,7 +5,7 @@ This project is to implement video chatting with voice and text at the same time
 ## APIs 
 
 This project uses libraries including Symple and WebRTC.  
-http://symple.sourcey.co
+http://symple.sourcey.com
 
 ## Usage
 
