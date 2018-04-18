@@ -23,10 +23,7 @@
 </script>
 
 <!-- Framework -->
-<link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-<link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.min.js"></script>
 <script type="text/javascript" src="//cdn.socket.io/socket.io-1.4.5.js"></script>
 
@@ -57,28 +54,31 @@
 <body id="page-top" ng-controller="SympleChat">
 <!-- test -->
   <!-- Navigation -->
-       <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-              <div class="container">
-                       <a class="navbar-brand js-scroll-trigger" href="#page-top">Start Bootstrap</a>
-                                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-   target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle     navigation">
-                                           Menu
-                                                      <i class="fa fa-bars"></i>
-                                                               </button>
-                                                                        <div class="collapse navbar-collapse" id="navbarResponsive">
-                                                                                   <ul class="navbar-nav ml-auto">
-                                                                                                <li class="nav-item">
-                                                                                                               <a class="nav-link js-scroll-trigger" href="#about">About</a>
-                                                                                                                            </li>
-                                                                                                                                         <li class="nav-item">
-                                                                                                                                                        <a class="nav-link js-scroll-trigger" href="#download"> LOG IN</a>
-                                                                                                                                                                     </li>
-                                                                                                                                                                                  <li class="nav-item">
-                                                                                                                                                                                                 <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
-                                                                                                                                                                                                              </li>
-                                                                                                                                                                                                                         </ul>
-                                                                                                                                                                                                                                  </div>
-                                                                                                                                                                                                                                         </div>
-                                                                                                                                                                                                                  </nav>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">CSED353</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-   target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle     navigation">
+        Menu
+        <i class="fa fa-bars"></i>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#about">LOG IN</a>
+            </li>
+          
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#download"> VIDEO </a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
   <!-- Intro Header -->
   <header class="masthead">
     <div class="intro-body">  
@@ -98,44 +98,47 @@
     </div>
   </header>
 
-  <section id="download" class="download-section content-section text-center">
+  <section id="about" class="content-section text-center">
     <div class="container">
       <div class="row">
         <div class="col-lg-8 mx-auto">
-          <h2>Log in</h2>
-          <p> You first need to log in </p>
-   
           <div id="login" ng-show="!isLoggedIn()" class="panel panel-default">
             <div class="panel-heading">
-              <h3 class="panel-title">Login</h3>
+              <h2 class="">Login</h2>
+              <p> You first need to log in </p>
             </div>
-          <div class="panel-body">
+            <div class="panel-body">
             <form ng-submit="login()">
               <div class="input-group">
                 <input type="text" class="form-control" ng-model="handle" value="auscaster" placeholder="Enter a handle to login..." />
                   <button class="btn btn-primary" type="submit">Login</button>
               </div>
             </form>
+            </div>
           </div>
         </div>
-
         <div class="col-lg-8 mx-auto" id="roster">
-          <div style="background: gray" class="panel panel-default">
-            <div class="panel-heading">
-              <h3 class="panel-title">People</h3>
+          <div style="margin-top:20px" class="panel panel-default">
+            <div class="">
+              <h3 class="">USERS</h3>
             </div>
-            <ul style="background:gray" class="list-group">
-              <li style="background:gray" class="list-group-item list-group-item-warning" ng-show="!isLoggedIn()"><small>Please log in...</small></li>
-              <li style="background:gray" class="list-group-item" ng-repeat="peer in peers">
+            <ul style="background:white" class="list-group">
+              <li style="background:white; color:black" class="list-group-item list-group-item-warning" ng-show="!isLoggedIn()">
+                You first need to log in!
+              </li>
+              <li style="background:white; color:black" class="list-group-item" ng-repeat="peer in peers">
               <div class="btn-group btn-group-xs pull-right">
-                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                          Action <span class="caret"></span>
-                </button>
+                <div class="dropdown show" role="menu">
+                  <a class="btn btn-secondary dropdown-toggle direct-user" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Action
+                  </a> 
+                  <div class="dropdown-menu" role="menu" aria-labelledby="dropdownMenuLink">
+                    <a class="dropdown-item" href="javascript:void(0)" ng-click="setMessageTarget(peer.user)">Direct message</a>
+                    <a class="dropdown-item" href="javascript:void(0)" ng-click="startVideoCall(peer.user)">Video chat</a>
+                  </div>
+  
+                </div>
               </div>
-              <ul class="dropdown-menu" role="menu">
-                <li><a href="javascript:void(0)" ng-click="setMessageTarget(peer.user)">Direct message</a></li>
-                <li><a href="javascript:void(0)" ng-click="startVideoCall(peer.user)">Video chat</a></li>
-              </ul>
               <b>@{{peer.user}}</b>
             </ul>
           </div>
@@ -148,22 +151,19 @@
     <div class="icon">
     </div>
   </div>
-  <section>
+ 
+  <!-- VIDEO AREA -->
+  <section id="download" class="download-section content-section text-center">
   <div id="container">
-
-    <nav id="nav">
-      <h1 id="logo"><a href="http://symple.sourcey.com"> Computer Networks Assignment4</a></h1>
-    </nav>
-
     <div class="alert alert-danger" ng-show="errorText" ng-bind="errorText">You have been disconnected from the server</div>
 
     <div class="row">
-      <div class="col-md-8">
+      <div class="col-lg-8 mx-auto">
 
         <div id="video">
           <div class="panel panel-default">
-            <div class="panel-heading">
-              <h3 class="panel-title">Video</h3>
+            <div class="">
+              <h2 class="">Video Chatting</h2>
             </div>
             <div class="panel-body">
               <div class="local-video-wrap">
@@ -200,22 +200,23 @@
 
         <div id="messages">
             <div class="panel panel-default">
-              <div class="panel-heading">
-                <h3 class="panel-title">Conversation</h3>
+              <div style="margin-top:10px" class="">
+                <h2 class="">Text Chatting</h2>
               </div>
               <ul class="list-group">
                   <li class="list-group-item">
                     <form id="post-message" ng-submit="sendMessage()">
                       <div class="input-group">
                         <span class="input-group-btn">
-                          <button class="btn btn-default dropdown-toggle direct-user" data-toggle="dropdown" type="button">@</button>
-                          <ul class="dropdown-menu" role="menu">
-                            <li><a href="javascript:void(0)" ng-click="setMessageTarget()">Send to everyone</a></li>
-                            <li class="divider"></li>
-                            <li ng-repeat="peer in peers">
-                              <a href="javascript:void(0)" ng-click="setMessageTarget(peer.user)">@{{peer.user}}</a>
-                            </li>
-                          </ul>
+                          <div class="dropdown show" role="menu">
+                            <a class="btn btn-secondary dropdown-toggle direct-user" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              @ To
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">   
+                              <a class="dropdown-item" href="javascript:void(0)" ng-click="setMessageTarget()">Send to everyone</a>
+                              <a ng-repeat="peer in peers" class="dropdown-item" href="javascript:void(0)" ng-click="setMessageTarget(peer.user)">@{{peer.user}}</a>
+                            </div>
+                          </div>
                         </span>
                         <input type="text" class="form-control message-text" ng-model="messageText" placeholder="Type your message here" />
                         <span class="input-group-btn">
@@ -224,7 +225,7 @@
                       </div>
                     </form>
                   </li>
-                  <li class="list-group-item" ng-class="getMessageClass(message)" ng-repeat="message in messages">
+                  <li style="color:black; text-align:left"  class="list-group-item" ng-class="getMessageClass(message)" ng-repeat="message in messages">
                     <span class="time">{{message.time}}</span>
                     <span class="user">@{{message.user}}</span>
                     <span class="data">{{message.data}}</span>
@@ -234,6 +235,36 @@
         </div>
       </div>
     </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="content-section text-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <h2>Contact to Our Team</h2>
+            <p>Our code is available at 
+            <a href="https://github.com/ghjeong12/network_hw4">Project code</a>
+            </p>
+            <p>Check out our codes and feel free to modify!</p>
+            <ul class="list-inline banner-social-buttons">
+              <li class="list-inline-item">
+                <a href="https://novain.kr" class="btn btn-default btn-lg">
+                  <i class="fa fa-twitter fa-fw"></i>
+                  <span class="network-name">Personal Web</span>
+                </a>
+              </li>
+              
+              <li class="list-inline-item">
+                <a href="https://github.com/ghjeong12/network_hw4" class="btn btn-default btn-lg">
+                  <i class="fa fa-github fa-fw"></i>
+                  <span class="network-name">Github</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </section>
     <footer>
     

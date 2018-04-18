@@ -1,6 +1,6 @@
 {
-  "name": "symple-webrtc-video-chat-demo",
-  "title": "Symple WebRTC Video Chat Demo",
+  "name": "network_hw4",
+  "title": "video chat",
   "version": "0.6.3",
   "scripts": {
     "start": "node app.js"
@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sourcey/symple-webrtc-video-chat-demo.git"
+    "url": "git+https://github.com/ghjeong12/network_hw4.git"
   },
   "keywords": [
     "symple",
@@ -27,10 +27,10 @@
     "webrtc",
     "chat"
   ],
-  "author": "Kam Low <auscaster@gmail.com> (http://sourcey.com)",
+  "author": "Geonhwa Jeong <ghjeong12@postech.ac.kr>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/sourcey/symple-webrtc-video-chat-demo/issues"
+    "url": "https://github.com/ghjeong12/network_hw4"
   },
-  "homepage": "http://sourcey.com/symple"
+  "homepage": "https://github.com/ghjeong12/network_hw4"
 }
