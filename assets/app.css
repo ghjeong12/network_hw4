@@ -16,7 +16,7 @@ form {
   margin-bottom: 15px;
 }
 #nav a {
-  margin: 0 20px 0 0;
+  /*margin: 0 20px 0 0;*/
 }
 
 footer {
@@ -36,7 +36,7 @@ footer {
   color: black;
 }
 
-.panel-heading {
+panel-heading {
   background: none !important;
 }
 .panel-title {
