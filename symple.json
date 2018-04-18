@@ -1,0 +1,23 @@
+{
+  /* This key and cert should be set to use HTTPS */
+  "ssl" : {
+    "enabled" : true,
+    "key" : "/home/ghjeong12/csed353/ssl/privkey.pem",
+    "cert" : "/home/ghjeong12/csed353/ssl/fullchain.pem"
+  },
+
+  /* The port to listen on */
+  "port" : 4551,
+
+  /* Allow anonymous connections */
+  "anonymous" : false,
+
+  /* Session ttl in minutes */
+  "sessionTtl" : 15,
+
+  /* Redis configuration */
+  "redis" : {
+    "host" : "localhost",
+    "port" : 6379
+  }
+}
