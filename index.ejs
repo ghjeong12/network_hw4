@@ -24,7 +24,7 @@
 
 <!-- Framework -->
 <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.4/angular.min.js"></script>
 <script type="text/javascript" src="//cdn.socket.io/socket.io-1.4.5.js"></script>
 
 <!-- Symple -->
@@ -225,7 +225,7 @@
                       </div>
                     </form>
                   </li>
-                  <li style="color:black; text-align:left"  class="list-group-item" ng-class="getMessageClass(message)" ng-repeat="message in messages">
+                  <li style="color:black; text-align:left"  class="list-group-item" ng-class="getMessageClass(message)" ng-repeat="message in messages.slice().reverse()">
                     <span class="time">{{message.time}}</span>
                     <span class="user">@{{message.user}}</span>
                     <span class="data">{{message.data}}</span>
