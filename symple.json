@@ -6,7 +6,7 @@
     "cert" : "/home/ghjeong12/csed353/ssl/fullchain.pem"
   },
 
-  /* The port to listen on */
+  /* The port that will be used for symple server */
   "port" : 4551,
 
   /* Allow anonymous connections */

@@ -2,13 +2,13 @@
 <head>
 <title> Network Assignment 4</title>
 <meta name="description" content="Video chatting application">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 <script>
 
   // Symple client options
   CLIENT_OPTIONS = {
     url: 'https://excite.postech.ac.kr:<%- port %>',
-    //url: 'http://sympleserver.sourcey.com:<%- port %>',
     token: <%- token %>,
     peer: <%- JSON.stringify(peer) %>
   }
@@ -17,13 +17,40 @@
   // This is where you would add TURN servers for use in production
   WEBRTC_CONFIG = {
     'iceServers': [
-      {'url': 'stun:stun.l.google.com:19302'}
+      {'url': 'stun:stun.l.google.com:19302'},
+      {'url': 'turn:excite.postech.ac.kr:3478', 'username': 'test','credential':'test'},
+
+      {
+            'urls': 'turn:192.158.29.39:3478?transport=udp',
+                'credential': 'JZEOEt2V3Qb0y27GRntt2u2PAYA=',
+                    'username': '28224511:1379330808'
+      },
+      {
+            'urls': 'turn:192.158.29.39:3478?transport=tcp',
+                'credential': 'JZEOEt2V3Qb0y27GRntt2u2PAYA=',
+                    'username': '28224511:1379330808'
+      },
+      {
+            'urls': 'turn:turn.bistri.com:80',
+                'credential': 'homeo',
+                    'username': 'homeo'
+                     },
+                      {
+                            'urls': 'turn:turn.anyfirewall.com:443?transport=tcp',
+                                'credential': 'webrtc',
+                                    'username': 'webrtc'
+                      },
+    {'urls': 'turn:13.250.13.83:3478?transport=udp',
+      'username': 'YzYNCouZM1mhqhmseWk6',
+     'credential': 'YzYNCouZM1mhqhmseWk6'},
+      {'urls': 'turn:13.250.13.83:3478?transport=tcp',
+      'username': 'YzYNCouZM1mhqhmseWk6',
+      'credential': 'YzYNCouZM1mhqhmseWk6'}
     ]
   }
 </script>
 
 <!-- Framework -->
-<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.4/angular.min.js"></script>
 <script type="text/javascript" src="//cdn.socket.io/socket.io-1.4.5.js"></script>
 
@@ -44,11 +71,11 @@
   <link href="https://excite.postech.ac.kr/~ghjeong12/network/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   
   <!-- Custom fonts for this template -->
-  <link href="https://excite.postech.ac.kr/~ghjeong12/network/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic"                rel="stylesheet" type="text/css">
   <link href='https://fonts.googleapis.com/css?family=Cabin:700' rel='stylesheet' type='text/css'>
   <!-- Custom styles for this template -->
-  <link href="https://excite.postech.ac.kr/~ghjeong12/network/css/grayscale.min.css" rel="stylesheet">
+  <link href="css/grayscale.min.css" rel="stylesheet">
 </head>
 
 <body id="page-top" ng-controller="SympleChat">
@@ -97,7 +124,6 @@
       </div>
     </div>
   </header>
-
   <section id="about" class="content-section text-center">
     <div class="container">
       <div class="row">
@@ -146,12 +172,10 @@
       </div>
     </div>
   </section>
-
   <div id="loading-overlay" ng-show="isLoading">
     <div class="icon">
     </div>
   </div>
- 
   <!-- VIDEO AREA -->
   <section id="download" class="download-section content-section text-center">
   <div id="container">
@@ -236,7 +260,6 @@
       </div>
     </div>
     </section>
-    
     <!-- Contact Section -->
     <section id="contact" class="content-section text-center">
       <div class="container">

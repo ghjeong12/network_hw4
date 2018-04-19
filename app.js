@@ -1,58 +1,62 @@
-//
-/// Setup the Symple server
+/* Initialize Symple module and setup Symple server */
+var symple_module = require('symple');
+var symple_server = new symple_module();
 
-var Symple = require('symple');
-var sy = new Symple();
-sy.loadConfig(__dirname + '/symple.json'); // see symple.json for options
-sy.init();
-console.log('Symple server listening on port ' + sy.config.port);
+/* Load configuration using symple.json file. */
+symple_server.loadConfig(__dirname + '/symple.json');
+symple_server.init();
+console.log('Symple server listening on port ' + symple_server.config.port);
 
-
-//
-/// Setup the client web server
-
+/* Setup modules */
 var express = require('express'),
   path = require('path'),
-  redis = require('redis'),
-  client = redis.createClient(),
-  app = express(),
-  serverPort = parseInt(sy.config.port)
-  clientPort = serverPort - 1;
+  app = express();
 
+  //redis = require('redis'),
+  //redis_client = redis.createClient(),
+
+var serverPort = parseInt(symple_server.config.port);
+var clientPort = serverPort - 1;
+
+/* Listen to the https server with client port.
+ * PORT 4550 by default will be used */
 app.set('port', clientPort);
 app.set('view engine', 'ejs');
 app.set('views', __dirname + '/');
+
 app.use(express.static(__dirname + '/assets'));
 app.use(express.static(__dirname + '/node_modules/symple-client/src'));
 app.use(express.static(__dirname + '/node_modules/symple-client-player/src'));
 
 app.get('/', function (req, res) {
   // Create a random token to identify this client
-  // NOTE: This method of generating unique tokens is not secure, so don't use
-  // it in production ;)
   var token = '' + Math.random();
 
   // Create the arbitrary user session object here
   var session = {
-    // user: 'demo',
-    // name: 'Demo User',
     group: 'public'
   }
 
-  // Store the user session on Redis
-  // This will be sent to the Symple server to authenticate the session
-  client.set('symple:session:' + token, JSON.stringify(session), redis.print);
+  /* Store the user session on Redis
+  *  This will be sent to the Symple server to authenticate the session
+  *  This authentication is not used for this project */
+  // redis_client.set('symple:session:' + token, JSON.stringify(session), redis.print);
 
-  // Render the response
+  /* Render the response with Symple server port
+   * PORT 4551 by default will be used */
   res.render('index', {
     port: serverPort,
     token: token,
     peer: session });
 });
+
+/* To handle keys, fs module is used */
 var fs = require('fs'),
 https = require ('https');
 
-/* should set up keys for HTTPS connection */
+/* Keys should be set up for HTTPS connection.
+ * If you want to run this program, you should locate proper keys and change following codes */
+
 https.createServer({
   key: fs.readFileSync('../../ssl/privkey.pem'),
   cert: fs.readFileSync('../../ssl/fullchain.pem')
