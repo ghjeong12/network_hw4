@@ -11,6 +11,6 @@ http://symple.sourcey.com
 
 1. Install dependencies: `npm install`
 2. Run application: `node app`
-3. Go to the web `http://localhost:4550` . 
+3. Go to the web `https://localhost:4550` . 
 
 Main source codes are located in assets folder!  
